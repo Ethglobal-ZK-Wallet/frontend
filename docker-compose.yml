@@ -12,7 +12,7 @@ services:
     volumes:
       - .:/app
     command: ["sh"]
-    entrypoint: 'anvil --chain-id 1 --fork-url $ETH_RPC_URL$INFURA_KEY --host 0.0.0.0 --verbosity'
+    #entrypoint: 'anvil --chain-id 1 --fork-url $ETH_RPC_URL$INFURA_KEY --host 0.0.0.0 --verbosity'
     working_dir: /app
     stdin_open: true # docker run -i
     tty: true        # docker run -t
