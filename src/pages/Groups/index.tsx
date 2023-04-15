@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router"
 import Button from "../../components/Button"
 
 const Groups = () => {
+  const navigate = useNavigate()
   return (
     <div className="flex flex-col gap-4">
       <h1 className="text-xl font-bold text-navy-blue-500">
@@ -12,7 +14,9 @@ const Groups = () => {
           <p>300 Members</p>
           <div className="p-3 w-full">
             <Button
-              onClick={() => {}}
+              onClick={() => {
+                navigate("/group/1")
+              }}
             >
               Expand
           </Button>

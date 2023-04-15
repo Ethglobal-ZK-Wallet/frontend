@@ -9,10 +9,10 @@ import { useLocation } from 'react-router'
 const SideBar = () => {
   const { pathname } = useLocation()
   const navigation = [
-    { name: 'Dashboard', href: 'dashboard', icon: HomeIcon },
-    { name: 'Groups', href: 'groups', icon: UsersIcon },
-    { name: 'Messages', href: 'messages', icon: EnvelopeIcon },
-    { name: 'Profile', href: 'profile', icon: UserCircleIcon }
+    { name: 'Dashboard', href: '/dashboard', icon: HomeIcon },
+    { name: 'Groups', href: '/groups', icon: UsersIcon },
+    { name: 'Messages', href: '/messages', icon: EnvelopeIcon },
+    { name: 'Profile', href: '/profile', icon: UserCircleIcon }
   ]
   
   return (
