@@ -1,0 +1,18 @@
+version: '3'
+services:
+  lendoor:
+    image: ghcr.io/foundry-rs/foundry:latest
+    container_name: foundrydev
+    # build:
+    #   context: .
+    env_file:
+      - .env
+    ports:
+      - 8545:8545
+    volumes:
+      - .:/app
+    command: ["sh"]
+    #entrypoint: 'anvil --chain-id 1 --fork-url $ETH_RPC_URL$INFURA_KEY --host 0.0.0.0 --verbosity'
+    working_dir: /app
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
