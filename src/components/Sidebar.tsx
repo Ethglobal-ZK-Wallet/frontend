@@ -4,13 +4,15 @@ import {
   UserCircleIcon,
   EnvelopeIcon
 } from '@heroicons/react/24/outline'
+import { useLocation } from 'react-router'
 
 const SideBar = () => {
+  const { pathname } = useLocation()
   const navigation = [
-    { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
-    { name: 'Groups', href: '#', icon: UsersIcon, current: false },
-    { name: 'Messages', href: '#', icon: EnvelopeIcon, current: false },
-    { name: 'Profile', href: '#', icon: UserCircleIcon, current: false }
+    { name: 'Dashboard', href: '/dashboard', icon: HomeIcon },
+    { name: 'Groups', href: '/groups', icon: UsersIcon },
+    { name: 'Messages', href: '/messages', icon: EnvelopeIcon },
+    { name: 'Profile', href: '/profile', icon: UserCircleIcon }
   ]
   
   return (
@@ -33,7 +35,7 @@ const SideBar = () => {
                       href={item.href}
                       className={`
                         ${
-                          item.current
+                          item.href === pathname
                           ? 'bg-gray-800 text-white'
                           : 'text-gray-400 hover:text-white hover:bg-gray-800'
                         }
