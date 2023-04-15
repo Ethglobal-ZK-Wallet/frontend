@@ -6,9 +6,20 @@ import Vote from "./Vote"
 import Profile from "./Profile"
 import Verify from "./Verify"
 import Organization from "./Organization"
+import { useContext, useEffect } from "react"
+import { AccountContext } from "../App"
 
 
 const Home = () => {
+
+  const accountContext = useContext(AccountContext)
+  useEffect(() => {
+    const worldcoin = localStorage.getItem('Worldcoin')
+    if(worldcoin === "Verified" && typeof accountContext.setWorldcoin !== "undefined"){
+      accountContext.setWorldcoin(true)
+    }
+  }, [])
+
   return (
     <div className="flex flex-col min-h-screen w-full bg-white text-black">
       {/* Fixed header and sidebar */}

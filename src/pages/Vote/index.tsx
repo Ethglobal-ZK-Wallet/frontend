@@ -1,13 +1,26 @@
-import { useNavigate } from "react-router"
+import { useNavigate, useParams } from "react-router"
 import Button from "../../components/Button"
 import Tooltip from "../../components/Tooltip"
+import { proposals } from "../../constants"
 import { shortenAddress } from "../../utils"
 import AccountTooltip from "./AccountTooltip"
 import VotingModule from "./VotingModule"
 
 const Vote = () => {
-  const account = "0xB478AdF763A5bf5aD31F5137545Bf99D30c22009"
+
   const navigate = useNavigate()
+  const { id } = useParams()
+  const defaultVal = {
+    id: 1,
+    title: 'Allocate tokens to the DAO',
+    status: 'Active',
+    date: '2023-04-20',    
+    proposer: "0xB478AdF763A5bf5aD31F5137545Bf99D30c22009"
+  }
+
+  const selectedProposal = id 
+    ? proposals.find((item) => item.id === parseInt(id)) ?? defaultVal
+    : defaultVal
   return (
     <div className="flex">
       <div className="flex flex-col gap-2 w-2/3">
@@ -25,20 +38,20 @@ const Vote = () => {
         <div className="w-10/12 flex flex-col gap-2">
           <div className="mt-4 flex flex-col">
             <h2 className="text-3xl font-bold">
-              Gib ARB to everyone
+              {selectedProposal?.title}
             </h2>
             <Tooltip 
               className="w-full"
               tooltipClassName = 'bottom-auto translate-y-2/3 bg-white rounded border border-navy-blue-500 text-sm'
               content={
-                <AccountTooltip account={account}/>
+                <AccountTooltip account={selectedProposal.proposer}/>
               }
             >
               <div
                 className="p-1 pl-2 pr-4 -translate-x-2 hover:bg-navy-blue-500/20 rounded"
               >
                 Proposed by: 
-                <span className="font-extrabold">{shortenAddress(account)}</span>
+                <span className="font-extrabold">{shortenAddress(selectedProposal.proposer)}</span>
               </div>
               
             </Tooltip>

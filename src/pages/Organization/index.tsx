@@ -1,43 +1,28 @@
 import {
   CalendarIcon,
 } from '@heroicons/react/24/outline'
+import { useParams } from 'react-router'
 import Button from '../../components/Button'
+import { organizations, proposals } from '../../constants'
 
 const Organization = () => {
+  const { id } = useParams()
 
-  const proposals: {
-    id: number,
-    title: string,
-    status: string,
-    date: string
-  }[] = [
-    {
+  const selectedOrganization = id 
+    ? organizations.find((item) => item.id === parseInt(id)) 
+    : {
       id: 1,
-      title: 'Give tokens to the Arbitrum DAO',
-      status: 'Active',
-      date: '2023-04-20',
-    },
-    {
-      id: 2,
-      title: 'Give tokens to the Arbitrum DAO',
-      status: 'Active',
-      date: '2023-04-20',
-    },
-    {
-      id: 3,
-      title: 'Give tokens to the Arbitrum DAO',
-      status: 'Active',
-      date: '2023-04-20',
+      name: "Arbitrum DAO",
+      members: 300,
     }
-  ]
 
   return (
     <div className="flex flex-col p-2 w-full">
       <div className="flex gap-2">
         <img src="/placeholder.png" className='w-16 h-auto object-contain' alt="Logo"/>
         <div className="flex flex-col p-2">
-          <h1 className="text-2xl font-bold">Arbitrum DAO</h1>
-          <p className="text-lg">300 members</p>
+          <h1 className="text-2xl font-bold">{selectedOrganization?.name}</h1>
+          <p className="text-lg">{`${selectedOrganization?.members} members`}</p>
         </div>
       </div>
       <div className="flex flex-col gap-2 mt-10">
