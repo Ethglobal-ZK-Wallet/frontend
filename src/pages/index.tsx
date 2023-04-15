@@ -4,7 +4,7 @@ import { Route, Routes, useLocation } from 'react-router-dom'
 import Dashboard from "./Dashboard"
 import Vote from "./Vote"
 import Group from "./Group"
-// import Test from "./test"
+import Profile from "./Profile"
 
 
 const Home = () => {
@@ -19,7 +19,8 @@ const Home = () => {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/group/:id" element={<Group />}/>
           <Route path="/vote/:id" element={<Vote />} />
-          {/* <Route path="/test" element={<Test/>} /> */}
+          <Route path="/profile/" element={<Profile />} />
+          <Route path="/profile/:address" element={<Profile />} />
         </Routes>
       </div>
     </div>
