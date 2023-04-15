@@ -16,7 +16,7 @@ const Verify = () => {
     },
     {
       id: 2,
-      title: 'Create a separate identity with Semaphore',
+      title: 'Create an identity with Semaphore',
       content: <CreateIdentity />,
       finished: accountContext.identity instanceof Identity
     },

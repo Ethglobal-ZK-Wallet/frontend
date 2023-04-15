@@ -1,6 +1,7 @@
 import { Identity } from "@semaphore-protocol/identity"
 import { useCallback, useContext, useEffect, useState } from "react"
 import { AccountContext } from "../App"
+import Button from "./Button"
 
 const CreateIdentity = () => {
     const accountContext = useContext(AccountContext)
@@ -35,9 +36,9 @@ const CreateIdentity = () => {
                 </div>
             ) : (
                 <div>
-                    <button className="button text-white" onClick={createIdentity}>
+                    <Button onClick={createIdentity}>
                         Create identity with Semaphore
-                    </button>
+                    </Button>
                 </div>
             )}
         </>

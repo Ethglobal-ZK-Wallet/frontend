@@ -43,20 +43,20 @@ function App() {
   const [identity, setIdentity] = useState<Identity | undefined>(undefined);
 
   return (
-    <WagmiConfig client={client}>
-      <BrowserRouter>
-          <AccountContext.Provider 
-            value={{
-              worldcoin: worldcoin,
-              identity: identity,
-              setWorldcoin: setWorldcoin,
-              setIdentity: setIdentity
-            }}
-          >
-            <Home/>
-          </AccountContext.Provider>
-      </BrowserRouter>
-    </WagmiConfig>
+    <AccountContext.Provider 
+      value={{
+        worldcoin: worldcoin,
+        identity: identity,
+        setWorldcoin: setWorldcoin,
+        setIdentity: setIdentity
+      }}
+    >
+      <WagmiConfig client={client}>
+          <BrowserRouter>
+                <Home/>
+          </BrowserRouter>
+      </WagmiConfig>
+    </AccountContext.Provider>
   )
 }
 

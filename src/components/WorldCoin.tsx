@@ -1,9 +1,15 @@
 import { IDKitWidget, ISuccessResult } from "@worldcoin/idkit";
-import { useCallback } from "react";
+import { useCallback, useContext, useEffect } from "react";
+import { AccountContext } from "../App";
 import Button from "./Button";
 
 const Worldcoin = () => {
+  const accountContext = useContext(AccountContext)
   const handleProof = useCallback((result: ISuccessResult) => {
+    if(typeof accountContext.setWorldcoin !== "undefined") {
+      accountContext.setWorldcoin(true)
+      localStorage.setItem('Worldcoin', 'Verified')
+    }
 		return new Promise<void>((resolve) => {
 			setTimeout(() => resolve(), 3000);
 			// NOTE: Example of how to decline the verification request and show an error message to the user
@@ -12,6 +18,10 @@ const Worldcoin = () => {
 
 	const onSuccess = (result: ISuccessResult) => {
 		console.log(result);
+    if(typeof accountContext.setWorldcoin !== "undefined") {
+      accountContext.setWorldcoin(true)
+      localStorage.setItem('Worldcoin', 'Verified')
+    }
 	};
   
   return (
