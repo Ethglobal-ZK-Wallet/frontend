@@ -1,26 +1,102 @@
 import Button from "../../components/Button"
+import VotingModule from "./VotingModule"
 
 const Vote = () => {
   return (
-    <div className="flex flex-col gap-2">
-      <div className="flex gap-2 items-center w-fit">
-        <Button 
-          onClick={() => {}}
-          className="w-full py-1 lg:px-2 font-medium rounded-lg overflow-hidden flex justify-center bg-navy-blue-500/40 text-white text-sm items-center"
-        >
-          Back
-        </Button>
-        <h1 className="text-xl font-bold min-w-fit">
-          Vote Proposal
-        </h1>
+    <div className="flex">
+      <div className="flex flex-col gap-2 w-2/3">
+        <div className="flex flex-col gap-2 items-start w-fit">
+          <Button 
+            onClick={() => {}}
+            className="w-fit py-1 lg:px-2 font-medium rounded-lg overflow-hidden flex justify-center bg-navy-blue-500/40 text-white text-sm items-center"
+          >
+            Back
+          </Button>
+          <h1 className="hidden text-xl font-bold min-w-fit">
+            Vote Proposal
+          </h1>
+        </div>
+        <div className="w-10/12 flex flex-col gap-2">
+          <h2 className="text-3xl font-bold mt-4">
+            Proposal Title
+          </h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
       </div>
-      <div className="w-10/12 flex flex-col gap-2">
-        <h2 className="text-3xl font-bold mt-4">
-          Proposal Title
-        </h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <div className="w-1/3 flex flex-col gap-6 mt-8">
+        <div className="p-4 border border-navy-blue-500/40 rounded-lg divide-y flex flex-col gap-2">
+          <p>Information</p>
+          <ul className="flex flex-col text-sm gap-1 py-1">
+            <li className="flex justify-between">
+              <span>Start Date</span>
+              <span>2023-04-23</span>
+            </li>
+            <li className="flex justify-between">
+              <span>End Date</span>
+              <span>2023-04-23</span>
+            </li>
+          </ul>
+        </div>
+        <div className="p-4 border border-navy-blue-500/40 rounded-lg divide-y flex flex-col gap-2">
+          <p>Current Vote Result</p>
+          <ul className="flex flex-col text-sm gap-2 py-1">
+            <li className="flex flex-col">
+              <div className="flex justify-between">
+                <div>For</div>
+                <div>{`${0.33 * 100}%`}</div>
+              </div>
+              <div
+                className={`w-full rounded-full h-2 bg-navy-blue-500/20`}
+              >
+                <div
+                  className={`bg-navy-blue-500 h-2 rounded-full`}
+                  style={{
+                    width: `${(0.33) * 100}%`,
+                  }}
+                />
+              </div>
+            </li>
+            <li className="flex flex-col">
+              <div className="flex justify-between">
+                <div>Against</div>
+                <div>{`${0.33 * 100}%`}</div>
+              </div>
+              <div
+                className={`w-full rounded-full h-2 bg-navy-blue-500/20`}
+              >
+                <div
+                  className={`bg-navy-blue-500 h-2 rounded-full`}
+                  style={{
+                    width: `${(0.33) * 100}%`,
+                  }}
+                />
+              </div>
+            </li>
+            <li className="flex flex-col">
+              <div className="flex justify-between">
+                <div>Abstain</div>
+                <div>{`${0.33 * 100}%`}</div>
+              </div>
+              <div
+                className={`w-full rounded-full h-2 bg-navy-blue-500/20`}
+              >
+                <div
+                  className={`bg-navy-blue-500 h-2 rounded-full`}
+                  style={{
+                    width: `${(0.33) * 100}%`,
+                  }}
+                />
+              </div>
+            </li>
+          </ul>
+        </div>
+        <VotingModule/>
       </div>
     </div>
+    
   )
 }
 export default Vote

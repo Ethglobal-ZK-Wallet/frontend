@@ -18,7 +18,7 @@ const Home = () => {
           <Route path="/" element={<Dashboard />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/groups" element={<Groups />} />
-          <Route path="/group/:id" element={<Group />} />
+          <Route path="/group/:id" element={<Group />}/>
           <Route path="/vote/:id" element={<Vote />} />
         </Routes>
       </div>
