@@ -26,7 +26,7 @@ const Vote = () => {
             </h2>
             <Tooltip 
               className="w-full"
-              tooltipClassName = 'bottom-auto mt-32 bg-white rounded border border-navy-blue-500 text-sm'
+              tooltipClassName = 'bottom-auto translate-y-2/3 bg-white rounded border border-navy-blue-500 text-sm'
               content={
                 <AccountTooltip account={account}/>
               }
@@ -50,14 +50,14 @@ const Vote = () => {
             Votes
           </h2>
           <div className="flex flex-col gap-4 text-sm">
-            <div className="flex justify-between items-center gap-10 border border-neutral-900/20 p-3 rounded-lg shadow">
+            <div className="flex justify-between items-center gap-10 border border-neutral-900/20 p-3 px-5 rounded-lg shadow">
               <div className="flex flex-col gap-1">
                 <span>0x1234...5678</span>
                 <span className="text-xs text-black/70">{`${300} TOKENS`}</span>
               </div>
               <span className="font-bold text-lg">FOR</span>
             </div>
-            <div className="flex justify-between items-center gap-10 border border-neutral-900/20 p-3 rounded-lg shadow">
+            <div className="flex justify-between items-center gap-10 border border-neutral-900/20 p-3 px-5 rounded-lg shadow">
               <div className="flex flex-col gap-1">
                 <span>0x1234...5678</span>
                 <span className="text-xs text-black/70">{`${300} TOKENS`}</span>
