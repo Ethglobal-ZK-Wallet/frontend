@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router"
 import Button from "../../components/Button"
 import Tooltip from "../../components/Tooltip"
 import AccountTooltip from "./AccountTooltip"
@@ -5,12 +6,13 @@ import VotingModule from "./VotingModule"
 
 const Vote = () => {
   const account = "0x1234...5678"
+  const navigate = useNavigate()
   return (
     <div className="flex">
       <div className="flex flex-col gap-2 w-2/3">
         <div className="flex flex-col gap-2 items-start w-fit">
           <Button 
-            onClick={() => {}}
+            onClick={() => { navigate(-1)}}
             className="w-fit py-1 lg:px-2 font-medium rounded-lg overflow-hidden flex justify-center bg-navy-blue-500/40 text-white text-sm items-center"
           >
             Back
