@@ -25,7 +25,7 @@ const Tooltip = ({
       }}
     >
       <Transition
-        show={true}
+        show={visible}
         as={Fragment}
         enter="transition-opacity duration-300"
         enterFrom="opacity-0"
