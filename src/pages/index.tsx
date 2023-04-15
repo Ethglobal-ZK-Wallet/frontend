@@ -3,9 +3,9 @@ import SideBar from "../components/Sidebar"
 import { Route, Routes, useLocation } from 'react-router-dom'
 import Dashboard from "./Dashboard"
 import Vote from "./Vote"
-import Group from "./Group"
 import Profile from "./Profile"
 import Verify from "./Verify"
+import Organization from "./Organization"
 
 
 const Home = () => {
@@ -18,7 +18,7 @@ const Home = () => {
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/group/:id" element={<Group />}/>
+          <Route path="/organization/:id" element={<Organization />}/>
           <Route path="/vote/:id" element={<Vote />} />
           <Route path="/profile/" element={<Profile />} />
           <Route path="/profile/:address" element={<Profile />} />
