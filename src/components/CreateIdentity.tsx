@@ -1,30 +1,33 @@
 import { Identity } from "@semaphore-protocol/identity"
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useContext, useEffect, useState } from "react"
+import { AccountContext } from "../App"
 
 const CreateIdentity = () => {
-    const [_identity, setIdentity] = useState<Identity>()
+    const accountContext = useContext(AccountContext)
 
     useEffect(() => {
         const identityString = localStorage.getItem("identity")
 
         if (identityString) {
             const identity = new Identity(identityString)
-
-            setIdentity(identity)
+            if(accountContext.setIdentity) {
+                accountContext.setIdentity(identity)
+            }
 
         }
     }, [])
 
     const createIdentity = useCallback(async () => {
         const identity = new Identity()
-
-        setIdentity(identity)
+        if(accountContext.setIdentity) {
+            accountContext.setIdentity(identity)
+        }
 
         localStorage.setItem("identity", identity.toString())
     }, [])
     return(
         <>
-        {_identity ? (
+        {accountContext.identity instanceof Identity ? (
                 <div>
                     <div className="box">
                         <p className="box-text">Identity Created</p>
@@ -33,7 +36,7 @@ const CreateIdentity = () => {
             ) : (
                 <div>
                     <button className="button text-white" onClick={createIdentity}>
-                        Create identity
+                        Create identity with Semaphore
                     </button>
                 </div>
             )}

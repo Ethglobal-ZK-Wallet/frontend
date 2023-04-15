@@ -5,6 +5,7 @@ import Dashboard from "./Dashboard"
 import Vote from "./Vote"
 import Group from "./Group"
 import Profile from "./Profile"
+import Verify from "./Verify"
 
 
 const Home = () => {
@@ -21,6 +22,7 @@ const Home = () => {
           <Route path="/vote/:id" element={<Vote />} />
           <Route path="/profile/" element={<Profile />} />
           <Route path="/profile/:address" element={<Profile />} />
+          <Route path="/verify/" element={<Verify />} />
         </Routes>
       </div>
     </div>
