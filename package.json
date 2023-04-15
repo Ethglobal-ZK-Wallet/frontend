@@ -16,9 +16,11 @@
     "@safe-global/safe-react-components": "^2.0.5",
     "@semaphore-protocol/identity": "^3.6.0",
     "@worldcoin/idkit": "^0.4.9",
+    "ethers": "^5.7.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.10.0"
+    "react-router-dom": "^6.10.0",
+    "wagmi": "^0.12.10"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
