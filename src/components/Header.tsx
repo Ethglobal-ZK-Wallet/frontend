@@ -1,6 +1,7 @@
 import { IDKitWidget, ISuccessResult } from "@worldcoin/idkit";
 import Button from "./Button"
 import { useCallback } from "react";
+import CreateIdentity from "./CreateIdentity/CreateIdentity";
 const Header = () => {
   const handleProof = useCallback((result: ISuccessResult) => {
 		return new Promise<void>((resolve) => {
@@ -33,6 +34,7 @@ const Header = () => {
 				>
 					{({ open }) => <button onClick={open}>Click me</button>}
 				</IDKitWidget>
+			<CreateIdentity />
       </div>
       
     </div>
