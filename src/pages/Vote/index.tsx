@@ -23,7 +23,27 @@ const Vote = () => {
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <h2 className="text-3xl font-bold mt-4">
+            Votes
+          </h2>
+          <div className="flex flex-col gap-4 text-sm">
+            <div className="flex justify-between items-center gap-10 border border-neutral-900/20 p-3 rounded-lg shadow">
+              <div className="flex flex-col gap-1">
+                <span>0x1234...5678</span>
+                <span className="text-xs text-black/70">{`${300} TOKENS`}</span>
+              </div>
+              <span className="font-bold text-lg">FOR</span>
+            </div>
+            <div className="flex justify-between items-center gap-10 border border-neutral-900/20 p-3 rounded-lg shadow">
+              <div className="flex flex-col gap-1">
+                <span>0x1234...5678</span>
+                <span className="text-xs text-black/70">{`${300} TOKENS`}</span>
+              </div>
+              <span className="font-bold text-lg">FOR</span>
+            </div>
+          </div>
         </div>
       </div>
       <div className="w-1/3 flex flex-col gap-6 mt-8">

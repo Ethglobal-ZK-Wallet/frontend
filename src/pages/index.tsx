@@ -1,7 +1,6 @@
 import Header from "../components/Header"
 import SideBar from "../components/Sidebar"
 import { Route, Routes, useLocation } from 'react-router-dom'
-import Groups from "./Groups"
 import Dashboard from "./Dashboard"
 import Vote from "./Vote"
 import Group from "./Group"
@@ -17,7 +16,6 @@ const Home = () => {
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/groups" element={<Groups />} />
           <Route path="/group/:id" element={<Group />}/>
           <Route path="/vote/:id" element={<Vote />} />
         </Routes>
