@@ -5,6 +5,7 @@ import Groups from "./Groups"
 import Dashboard from "./Dashboard"
 import Vote from "./Vote"
 import Group from "./Group"
+// import Test from "./test"
 
 
 const Home = () => {
@@ -20,6 +21,7 @@ const Home = () => {
           <Route path="/groups" element={<Groups />} />
           <Route path="/group/:id" element={<Group />} />
           <Route path="/vote/:id" element={<Vote />} />
+          {/* <Route path="/test" element={<Test/>} /> */}
         </Routes>
       </div>
     </div>
