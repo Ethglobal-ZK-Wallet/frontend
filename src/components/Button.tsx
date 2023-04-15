@@ -3,7 +3,7 @@ export const buttonStyle = 'lg:transition duration-1000 lg:hover:ouline-none lg:
 const Button = ({
   children,
   onClick,
-  className = 'w-full py-4 lg:py-5 lg:px-8 font-bold rounded-lg overflow-hidden flex justify-center bg-neutral-400 text-black items-center',
+  className = 'w-full py-2 lg:px-4 font-medium rounded-lg overflow-hidden flex justify-center bg-navy-blue-500 text-white items-center',
   disableButtonStyle = ' border-none cursor-auto',
   disabled = false,
 }: {
