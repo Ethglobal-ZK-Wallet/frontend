@@ -1,7 +1,10 @@
 import Button from "../../components/Button"
+import Tooltip from "../../components/Tooltip"
+import AccountTooltip from "./AccountTooltip"
 import VotingModule from "./VotingModule"
 
 const Vote = () => {
+  const account = "0x1234...5678"
   return (
     <div className="flex">
       <div className="flex flex-col gap-2 w-2/3">
@@ -17,9 +20,27 @@ const Vote = () => {
           </h1>
         </div>
         <div className="w-10/12 flex flex-col gap-2">
-          <h2 className="text-3xl font-bold mt-4">
-            Proposal Title
-          </h2>
+          <div className="mt-4 flex flex-col">
+            <h2 className="text-3xl font-bold">
+              Gib ARB to everyone
+            </h2>
+            <Tooltip 
+              className="w-full"
+              tooltipClassName = 'bottom-auto mt-32 bg-white rounded border border-navy-blue-500 text-sm'
+              content={
+                <AccountTooltip account={account}/>
+              }
+            >
+              <div
+                className="p-1 pl-2 pr-4 -translate-x-2 hover:bg-navy-blue-500/20 rounded"
+              >
+                Proposed by: 
+                <span className="font-extrabold">{account}</span>
+              </div>
+              
+            </Tooltip>
+          </div>
+
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
@@ -50,6 +71,10 @@ const Vote = () => {
         <div className="p-4 border border-navy-blue-500/40 rounded-lg divide-y flex flex-col gap-2">
           <p>Information</p>
           <ul className="flex flex-col text-sm gap-1 py-1">
+            <li className="flex justify-between items-center">
+              <span>Status</span>
+              <div className="w-fit p-1 px-2 bg-green-200 rounded-lg">Active</div>
+            </li>
             <li className="flex justify-between">
               <span>Start Date</span>
               <span>2023-04-23</span>
