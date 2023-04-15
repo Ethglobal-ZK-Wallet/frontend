@@ -29,14 +29,14 @@ contract ZKVote is SemaphoreVoting {
     mapping(uint256 => Proposal[]) public proposals;
 
     /// Create a new ballot to choose one of `proposalNames`.
-    constructor(ISemaphoreVerifier memory _verifier) SemaphoreVotingI(_verifier){
+    constructor(ISemaphoreVerifier _verifier) SemaphoreVoting(_verifier){
     }
 
     function genPoll(address coordinator, uint256 merkleTreeDepth, bytes32[] memory proposalNames) public {
         createPoll(pollgencount, coordinator, merkleTreeDepth, proposalNames);
         pollgencount +=1;
     }
-    function createPoll(uint256 pollId, address coordinator, uint256 merkleTreeDepth, bytes32[] memory proposalNames) public override {
+    function createPoll(uint256 pollId, address coordinator, uint256 merkleTreeDepth, bytes32[] memory proposalNames) public {
         if (merkleTreeDepth < 16 || merkleTreeDepth > 32) {
             revert Semaphore__MerkleTreeDepthIsNotSupported();
         }
@@ -66,7 +66,7 @@ contract ZKVote is SemaphoreVoting {
         // this will throw automatically and revert all
         // changes.
         proposals[pollId][proposal].voteCount += 1;
-        castVote(vote, nullifierHash, pollId, proof);
+        castVote(proposal, nullifierHash, pollId, proof);
     }
 
     /// @dev Computes the winning proposal taking all
@@ -89,6 +89,6 @@ contract ZKVote is SemaphoreVoting {
     function winnerName(uint256 pollId) external view
             returns (bytes32 winnerName_)
     {
-        winnerName_ = proposals[pollId][winningProposal()].name;
+        winnerName_ = proposals[pollId][winningProposal(pollId)].name;
     }
 }
