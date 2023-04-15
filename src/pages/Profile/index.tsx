@@ -61,7 +61,12 @@ const Profile = () => {
               </div>
               <Button
                 className={`${style} bg-navy-blue-500/60 text-white flex items-center`}
-                onClick={() => {}}
+                onClick={() => { 
+                  window.open(
+                    `https://goerli.etherscan.io/address/${account}`,
+                    '_blank'
+                  )?.focus()
+                }}
               >
                 View in explorer
                 <div className="w-3 ml-1 h-auto">
