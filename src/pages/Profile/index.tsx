@@ -4,11 +4,14 @@ import {
   ArrowTopRightOnSquareIcon, CheckBadgeIcon, ExclamationTriangleIcon
 } from '@heroicons/react/24/outline'
 import Activity from "./Activity"
+import { useContext } from "react"
+import { AccountContext } from "../../App"
+import { Identity } from "@semaphore-protocol/identity"
 
 const Profile = () => {
   const { address } = useParams()
-  const verified = false
-  console.log(address)
+  const accountContext = useContext(AccountContext)
+  const verified = accountContext.worldcoin && accountContext.identity instanceof Identity
   const account = address ?? "0xBaABFcA145D47ABbaEdc9732e3D62B074F30cba8"
   const style = 'w-fit p-1 px-2 font-medium rounded overflow-hidden flex justify-center items-center text-xs'
 
