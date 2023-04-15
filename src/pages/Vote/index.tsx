@@ -1,11 +1,12 @@
 import { useNavigate } from "react-router"
 import Button from "../../components/Button"
 import Tooltip from "../../components/Tooltip"
+import { shortenAddress } from "../../utils"
 import AccountTooltip from "./AccountTooltip"
 import VotingModule from "./VotingModule"
 
 const Vote = () => {
-  const account = "0x1234...5678"
+  const account = "0xB478AdF763A5bf5aD31F5137545Bf99D30c22009"
   const navigate = useNavigate()
   return (
     <div className="flex">
@@ -37,7 +38,7 @@ const Vote = () => {
                 className="p-1 pl-2 pr-4 -translate-x-2 hover:bg-navy-blue-500/20 rounded"
               >
                 Proposed by: 
-                <span className="font-extrabold">{account}</span>
+                <span className="font-extrabold">{shortenAddress(account)}</span>
               </div>
               
             </Tooltip>
