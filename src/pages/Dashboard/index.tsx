@@ -11,10 +11,17 @@ const Dashboard = () => {
     }
   ]
   return (
-    <div className="flex flex-col gap-4">
-      <h1 className="text-xl font-bold text-navy-blue-500">
-        Organizations
-      </h1>
+    <div className="flex flex-col gap-4 w-full">
+      <div className="flex justify-between w-full">
+        <h1 className="text-2xl font-bold text-navy-blue-500">
+          Organizations
+        </h1>
+        <Button 
+          className = 'w-fit py-2 lg:px-4 font-medium rounded-lg overflow-hidden flex justify-center bg-navy-blue-500 text-white items-center'
+          onClick={() => {}}>
+          Create Organization
+        </Button>
+      </div>
       <div className="flex gap-3 w-full flex-wrap">
         {organizations.length > 0 
           ? organizations.map((organization) => {

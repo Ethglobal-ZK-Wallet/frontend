@@ -1,6 +1,7 @@
 import {
   CalendarIcon,
 } from '@heroicons/react/24/outline'
+import Button from '../../components/Button'
 
 const Organization = () => {
 
@@ -40,7 +41,15 @@ const Organization = () => {
         </div>
       </div>
       <div className="flex flex-col gap-2 mt-10">
-        <h2 className="text-xl font-bold">Proposals</h2>
+        <div className="w-full flex justify-between">
+          <h2 className="text-xl font-bold">Proposals</h2>
+          <Button 
+            className = 'w-fit py-1 lg:px-3 font-medium rounded-lg overflow-hidden flex justify-center bg-navy-blue-500 text-white items-center'
+            onClick={() => {}}
+          >
+            Create Proposal
+          </Button>
+        </div>
         <div className="w-full bg-white shadow border border-neutral-900/10 sm:rounded-md">
           <ul role="list" className="divide-y divide-gray-200">
             {proposals.length > 0 

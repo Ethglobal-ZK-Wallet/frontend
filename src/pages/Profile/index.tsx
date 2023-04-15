@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import Button from "../../components/Button"
 import {
   ArrowTopRightOnSquareIcon, CheckBadgeIcon, ExclamationTriangleIcon
@@ -10,6 +10,7 @@ import { Identity } from "@semaphore-protocol/identity"
 
 const Profile = () => {
   const { address } = useParams()
+  const navigate = useNavigate()
   const accountContext = useContext(AccountContext)
   const verified = accountContext.worldcoin && accountContext.identity instanceof Identity
   const account = address ?? "0xBaABFcA145D47ABbaEdc9732e3D62B074F30cba8"
@@ -24,15 +25,17 @@ const Profile = () => {
             : "User"
           } Profile
         </h1>
-        <Button
+        {!verified && <Button
           className='w-fit p-2 px-6 font-medium rounded-lg overflow-hidden flex justify-center items-center bg-navy-blue-500 text-white font-semibold text-lg'
-          onClick={() => {}}
+          onClick={() => {
+            navigate("/verify")
+          }}
         >
           <div className="w-6 mr-1 h-auto">
             <CheckBadgeIcon/>
           </div>
            Verify Account
-        </Button>
+        </Button>}
       </div>
       <div className="flex gap-2 items-center p-6 border border-navy-blue-500 rounded-xl w-8/12">
         <img src="/placeholder.png" className='w-16 h-auto object-contain' alt="Profile Picture"/>
